@@ -11,14 +11,20 @@ export class AuthService {
     private jwtService: JwtService
   ) {}
 
-  validateUser(name: string, password: string): any {
-    const user = this.usersService.findOne(name);
+  async validateUser(name: string, password: string): Promise<any> {
+    console.log('Trying to find a user');
+    
+    const user = await this.usersService.findOne(name);
 
     if (user) {
+      console.log('User was found ', user);
+
       return user;
     }
 
-    return this.usersService.createOne({ name, password })
+    console.log('User was not found. Creating new one');
+
+    return await this.usersService.createOne({ name, password })
   }
 
   login(user: User, type) {
