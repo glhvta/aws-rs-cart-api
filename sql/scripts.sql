@@ -4,10 +4,10 @@
 -- DROP TABLE carts;
 
 -- CREATE TABLE carts (
--- 	id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
--- 	user_id uuid NOT NULL,
--- 	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
--- 	updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+--     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+--     user_id uuid NOT NULL,
+--     created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+--     updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 -- );
 
 -- CREATE TABLE cart_items (
@@ -29,9 +29,9 @@
 -- ('fffb21e0-5408-4ea1-93a8-1f9ebf8b5f07', 50)
 -- ;
 
-CREATE TABLE users (
-	id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-	name text NOT NULL,
-    password text NOT NULL,
-    email text
-);
+-- CREATE TABLE users (
+--     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+--     name text NOT NULL,
+--     password text NOT NULL,
+--     email text
+-- );
