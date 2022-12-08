@@ -20,7 +20,8 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "deploy:dev": "sls deploy --stage dev",
-    "build:deploy": "npm run build && npm run deploy:dev"
+    "build:deploy": "npm run build && npm run deploy:dev",
+    "serve:offline": "npm run build && sls offline start --httpPort 4000 --stage dev"
   },
   "dependencies": {
     "@nestjs/common": "^7.5.1",
@@ -29,6 +30,7 @@
     "@nestjs/jwt": "^7.2.0",
     "@nestjs/passport": "^7.1.0",
     "@nestjs/platform-express": "^7.5.1",
+    "@types/pg": "^8.6.5",
     "@vendia/serverless-express": "^4.10.1",
     "aws-lambda": "^1.0.7",
     "helmet": "^4.2.0",
@@ -36,6 +38,7 @@
     "passport-http": "^0.3.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "pg": "^8.8.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.4",
     "uuid": "^8.3.1"
@@ -59,6 +62,7 @@
     "jest": "26.4.2",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
+    "serverless-dotenv-plugin": "^4.0.2",
     "serverless-offline": "^12.0.1",
     "supertest": "^4.0.2",
     "ts-jest": "26.2.0",

@@ -1,4 +1,5 @@
 import { Controller, Get, Delete, Put, Body, Req, Post, UseGuards, HttpStatus } from '@nestjs/common';
+import { BasicAuthGuard } from 'src/auth';
 
 // import { BasicAuthGuard, JwtAuthGuard } from '../auth';
 import { OrderService } from '../order';
@@ -15,10 +16,16 @@ export class CartController {
   ) { }
 
   // @UseGuards(JwtAuthGuard)
-  // @UseGuards(BasicAuthGuard)
+  @UseGuards(BasicAuthGuard)
   @Get()
   findUserCart(@Req() req: AppRequest) {
-    const cart = this.cartService.findOrCreateByUserId(getUserIdFromRequest(req));
+    const userId = getUserIdFromRequest(req);
+
+    console.log('Get user cart, user id: ', userId);
+
+    const cart = this.cartService.findOrCreateByUserId(userId);
+
+    console.log('Get user cart, user cart: ', cart);
 
     return {
       statusCode: HttpStatus.OK,
